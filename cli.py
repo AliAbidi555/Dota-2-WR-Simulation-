@@ -17,7 +17,7 @@ from rich.console import Console
 from rich.table import Table
 
 app = typer.Typer(help="Dota 2 Performance Tracker CLI")
-console = Console()
+console = Console(highlight=False)
 
 FRIENDS_FILE = Path(__file__).parent / "friends.json"
 
@@ -125,7 +125,7 @@ def refresh_matches(
     asyncio.run(collect_match_history(account_ids, limit=limit, force=force))
 
     after = cache_stats()
-    console.print(f"\n[bold green]✓ Done[/bold green]  ({after['matches']} matches in cache)")
+    console.print(f"\n[bold green]Done[/bold green]  ({after['matches']} matches in cache)")
 
 
 @app.command(name="refresh-data")
@@ -146,7 +146,7 @@ def refresh_data(
 
     console.print("[bold cyan]Dota 2 Tracker — Data Refresh[/bold cyan]")
     asyncio.run(collect_all(force=force))
-    console.print("[bold green]✓ Done[/bold green]")
+    console.print("[bold green]Done[/bold green]")
 
 
 if __name__ == "__main__":

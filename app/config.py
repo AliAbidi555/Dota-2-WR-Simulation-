@@ -9,6 +9,11 @@ class Settings(BaseSettings):
 
     opendota_api_key: str = ""
     default_match_limit: int = 20
+    stratz_api_key: str = ""
+    # Stratz RankBracketBasicEnum bracket groups for hero meta queries.
+    # Valid values: HERALD_GUARDIAN, CRUSADER_ARCHON, LEGEND_ANCIENT, DIVINE_IMMORTAL, ALL
+    # Adjust to match your group's MMR range.
+    stratz_brackets: list[str] = ["LEGEND_ANCIENT"]
     friends_file: Path = ROOT_DIR / "friends.json"
 
     @property

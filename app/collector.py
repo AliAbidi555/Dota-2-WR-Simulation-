@@ -1,10 +1,10 @@
 """
-Data collector — fetches enriched player and hero stats for the win probability model.
+Data collector -- fetches enriched player and hero stats for the win probability model.
 
 Saves to data/:
-  player_role_stats.json   — per player × role: games, wins, winrate, hero breakdown
-  hero_matchups.json       — matchup win rates for each hero our friends play
-  hero_global_stats.json   — global per-position pick/win rates (from /heroStats)
+  player_role_stats.json   -- per player x role: games, wins, winrate, hero breakdown
+  hero_matchups.json       -- matchup win rates for each hero our friends play
+  hero_global_stats.json   -- global per-position pick/win rates (from /heroStats)
 
 Run via:  python cli.py refresh-data [--force]
 """
@@ -16,6 +16,7 @@ from pathlib import Path
 
 from app.client import get_client
 from app.config import settings
+from app import stratz as stratz_mod
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -125,6 +126,64 @@ async def _fetch_hero_matchups(client, hero_ids: list[int]) -> dict:
     return matchups
 
 
+# ── Stratz meta ───────────────────────────────────────────────────────────────
+
+async def _fetch_stratz_meta(force: bool = False) -> None:
+    """
+    Fetch bracket-specific hero meta from Stratz and merge with OpenDota data.
+
+    Saves:
+      data/hero_global_stats_stratz.json   -- hero position win rates at bracket
+      data/hero_global_stats_merged.json   -- Stratz + OpenDota merged (preferred by model)
+      data/hero_matchups_stratz.json       -- bracket-specific matchup edges
+    """
+    if not settings.stratz_api_key:
+        print("[collector] STRATZ_API_KEY not set -- skipping Stratz meta fetch.")
+        print("  Set it in .env as: STRATZ_API_KEY=your_token_here")
+        print("  Get a free key at: https://stratz.com/api")
+        return
+
+    brackets = settings.stratz_brackets   # list[str]: e.g. ["LEGEND_ANCIENT"]
+    now      = datetime.now(timezone.utc).isoformat()
+
+    client = stratz_mod.StratzClient(settings.stratz_api_key)
+    try:
+        if force or _is_stale("hero_global_stats_stratz.json"):
+            print(f"[collector] Fetching Stratz hero position meta (brackets: {brackets})...")
+            raw = await client.get_hero_position_stats(brackets)
+            stratz_heroes = stratz_mod.to_opendota_format(raw, brackets)
+
+            _save("hero_global_stats_stratz.json", {
+                "last_updated": now,
+                "source":       "stratz",
+                "brackets":     brackets,
+                "heroes":       stratz_heroes,
+            })
+            print(f"  -> saved hero_global_stats_stratz.json ({len(stratz_heroes)} heroes)")
+
+            # Merge with OpenDota global stats
+            opendota_data = _load("hero_global_stats.json")
+            if opendota_data:
+                od_heroes = opendota_data.get("heroes", [])
+                merged = stratz_mod.merge_with_opendota(stratz_heroes, od_heroes)
+                _save("hero_global_stats_merged.json", {
+                    "last_updated": now,
+                    "source":       "stratz+opendota",
+                    "brackets":     brackets,
+                    "heroes":       merged,
+                })
+                print(f"  -> saved hero_global_stats_merged.json ({len(merged)} heroes)")
+            else:
+                print("  [collector] hero_global_stats.json not found -- merged file skipped.")
+        else:
+            print("[collector] hero_global_stats_stratz.json is fresh -- skipping.")
+
+    except Exception as exc:
+        print(f"  [collector] Stratz fetch failed: {exc}")
+    finally:
+        await client.close()
+
+
 # ── Main entry ────────────────────────────────────────────────────────────────
 
 async def collect_all(force: bool = False) -> None:
@@ -134,7 +193,7 @@ async def collect_all(force: bool = False) -> None:
     Skips a dataset if its cache file is fresh (< 6 h old) and force=False.
     """
     if not settings.friends_file.exists():
-        print("[collector] friends.json not found — aborting.")
+        print("[collector] friends.json not found -- aborting.")
         return
 
     with open(settings.friends_file) as fh:
@@ -145,23 +204,23 @@ async def collect_all(force: bool = False) -> None:
 
     # ── 1. Role stats ──────────────────────────────────────────────────────────
     if force or _is_stale("player_role_stats.json"):
-        print("[collector] Fetching role stats per player (5 calls × player)…")
+        print("[collector] Fetching role stats per player (5 calls x player)...")
         player_results: dict[str, dict] = {}
         for f in friends:
             aid, label = f["account_id"], f.get("label", str(f["account_id"]))
-            print(f"  [{label}] roles…", end=" ", flush=True)
+            print(f"  [{label}] roles...", end=" ", flush=True)
             player_results[str(aid)] = await _fetch_role_stats_for_player(
                 client, aid, label
             )
             print("done")
         _save("player_role_stats.json", {"last_updated": now, "players": player_results})
-        print(f"  → saved player_role_stats.json")
+        print("  -> saved player_role_stats.json")
     else:
-        print("[collector] player_role_stats.json is fresh — skipping.")
+        print("[collector] player_role_stats.json is fresh -- skipping.")
 
-    # ── 2. Hero matchups ───────────────────────────────────────────────────────
+    # -- 2. Hero matchups -------------------------------------------------------
     if force or _is_stale("hero_matchups.json"):
-        print("[collector] Resolving top heroes for matchup fetch…")
+        print("[collector] Resolving top heroes for matchup fetch...")
         hero_ids: set[int] = set()
         for f in friends:
             try:
@@ -171,26 +230,29 @@ async def collect_all(force: bool = False) -> None:
                 await asyncio.sleep(0.3)
             except Exception:
                 pass
-        print(f"  {len(hero_ids)} unique heroes → fetching matchups…")
+        print(f"  {len(hero_ids)} unique heroes -- fetching matchups...")
         matchups = await _fetch_hero_matchups(client, sorted(hero_ids))
         _save("hero_matchups.json", {"last_updated": now, "matchups": matchups})
-        print(f"  → saved hero_matchups.json ({len(matchups)} heroes)")
+        print(f"  -> saved hero_matchups.json ({len(matchups)} heroes)")
     else:
-        print("[collector] hero_matchups.json is fresh — skipping.")
+        print("[collector] hero_matchups.json is fresh -- skipping.")
 
-    # ── 3. Global hero stats ───────────────────────────────────────────────────
+    # -- 3. Global hero stats ---------------------------------------------------
     if force or _is_stale("hero_global_stats.json"):
-        print("[collector] Fetching global hero stats (/heroStats)…")
+        print("[collector] Fetching global hero stats (/heroStats)...")
         try:
             global_stats = await client.get_hero_stats_global()
             _save(
                 "hero_global_stats.json",
                 {"last_updated": now, "heroes": global_stats},
             )
-            print(f"  → saved hero_global_stats.json ({len(global_stats)} heroes)")
+            print(f"  -> saved hero_global_stats.json ({len(global_stats)} heroes)")
         except Exception as exc:
             print(f"  [!] Failed: {exc}")
     else:
-        print("[collector] hero_global_stats.json is fresh — skipping.")
+        print("[collector] hero_global_stats.json is fresh -- skipping.")
+
+    # ── 4. Stratz bracket-specific hero meta ───────────────────────────────────
+    await _fetch_stratz_meta(force=force)
 
     print("\n[collector] Done. Data saved to", DATA_DIR)
