@@ -95,6 +95,39 @@ def list_friends():
     console.print(table)
 
 
+@app.command(name="refresh-matches")
+def refresh_matches(
+    force: bool = typer.Option(False, "--force", help="Re-fetch match ID lists even if cached"),
+    limit: int  = typer.Option(200,   "--limit", help="Number of recent matches per player"),
+):
+    """
+    Fetch and cache full match data for the last N matches of each tracked player.
+
+    Saves to data/match_cache/:
+      player_match_ids/{account_id}.json  — ordered match list per player
+      matches/{match_id}.json             — full match JSON per match
+
+    Match files are permanent — they are never re-fetched once saved.
+    Re-running is safe and fast (only missing matches are fetched).
+    Use --force to refresh the per-player match ID lists.
+    """
+    from app.match_cache import collect_match_history, cache_stats
+
+    data        = _load_friends()
+    account_ids = [f["account_id"] for f in data["friends"]]
+
+    before = cache_stats()
+    console.print(f"[bold cyan]Dota 2 Tracker — Match History Refresh[/bold cyan]")
+    console.print(f"  Players : {len(account_ids)}")
+    console.print(f"  Limit   : {limit} matches each")
+    console.print(f"  Cache   : {before['matches']} matches already stored\n")
+
+    asyncio.run(collect_match_history(account_ids, limit=limit, force=force))
+
+    after = cache_stats()
+    console.print(f"\n[bold green]✓ Done[/bold green]  ({after['matches']} matches in cache)")
+
+
 @app.command(name="refresh-data")
 def refresh_data(
     force: bool = typer.Option(False, "--force", help="Re-fetch even if cache is fresh"),

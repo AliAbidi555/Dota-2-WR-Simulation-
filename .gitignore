@@ -1,3 +1,9 @@
+# Match cache — can be 100MB+; re-generate with: python cli.py refresh-matches
+data/match_cache/
+
+# Notebook pickle cache
+notebook_cache/
+
 .env
 __pycache__/
 *.pyc
