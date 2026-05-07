@@ -1,0 +1,9 @@
+{
+  "friends": [
+    {"account_id": 185602862, "label": "Sherry", "steam_id_64": 76561198145868590},
+    {"account_id": 105774679, "label": "Haseeb", "steam_id_64": 76561198066040407},
+    {"account_id": 97129625,  "label": "Abidi",  "steam_id_64": 76561198057395353},
+    {"account_id": 135953784, "label": "Rafay",  "steam_id_64": 76561198096219512},
+    {"account_id": 124437009, "label": "ABT",    "steam_id_64": 76561198084702737}
+  ]
+}

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dota 2 Friend Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg:        #0d1117;
+      --surface:   #161b22;
+      --surface2:  #1c2530;
+      --border:    #30363d;
+      --gold:      #c89b3c;
+      --green:     #3fb950;
+      --red:       #f85149;
+      --blue:      #4d9de0;
+      --purple:    #9b5de5;
+      --orange:    #e0854d;
+      --text:      #e6edf3;
+      --dim:       #8b949e;
+      --r:         8px;
+    }
+    *  { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; font-size: 14px; }
+    a  { color: var(--gold); }
+
+    /* ── Header ── */
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.875rem 1.5rem;
+      background: var(--surface); border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 20;
+    }
+    .header-left { display: flex; align-items: center; gap: 0.75rem; }
+    header h1  { font-size: 1.1rem; color: var(--gold); font-weight: 600; letter-spacing: .02em; }
+    .header-right { display: flex; align-items: center; gap: .75rem; }
+    #status { font-size: .75rem; color: var(--dim); }
+
+    .btn {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: .375rem .875rem; border-radius: var(--r); cursor: pointer; font-size: .8rem;
+      transition: background .15s, border-color .15s;
+    }
+    .btn:hover { background: #243040; border-color: var(--gold); }
+    .btn:disabled { opacity: .5; cursor: default; }
+
+    main { padding: 1.5rem; max-width: 1440px; margin: 0 auto; }
+
+    .section-title {
+      font-size: .7rem; color: var(--dim); text-transform: uppercase;
+      letter-spacing: .12em; margin-bottom: .875rem; font-weight: 600;
+    }
+
+    /* ── Friend cards ── */
+    .cards-section { margin-bottom: 1.5rem; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: .875rem; }
+
+    .friend-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--r);
+      padding: 1.125rem; cursor: pointer;
+      transition: border-color .15s, transform .1s, box-shadow .15s;
+      user-select: none;
+    }
+    .friend-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(200,155,60,.12); }
+    .friend-card.active { border-color: var(--gold); background: var(--surface2); }
+
+    /* card top */
+    .card-top { display: flex; align-items: center; gap: .625rem; margin-bottom: .75rem; }
+    .avatar { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; object-fit: cover; }
+    .avatar-fb { width: 44px; height: 44px; border-radius: 50%; background: var(--surface2); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .card-names { min-width: 0; }
+    .card-label  { font-weight: 700; font-size: .95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .card-steam  { font-size: .7rem; color: var(--dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+
+    /* rank */
+    .rank-badge {
+      display: inline-block; padding: .175rem .5rem; border-radius: 4px;
+      font-size: .7rem; font-weight: 700; margin-bottom: .625rem; letter-spacing: .03em;
+    }
+
+    /* winrate */
+    .wr-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: .375rem; }
+    .wr-pct { font-size: 1.4rem; font-weight: 800; line-height: 1; }
+    .wr-pct.good { color: var(--green); }
+    .wr-pct.ok   { color: var(--gold);  }
+    .wr-pct.bad  { color: var(--red);   }
+    .wr-rec { font-size: .7rem; color: var(--dim); text-align: right; }
+    .prog-bar  { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: .625rem; overflow: hidden; }
+    .prog-fill { height: 100%; border-radius: 2px; }
+
+    /* stat rows */
+    .stats-row { display: flex; justify-content: space-between; margin-bottom: .5rem; }
+    .stat-box  { text-align: center; flex: 1; }
+    .stat-val  { font-size: .85rem; font-weight: 700; }
+    .stat-lbl  { font-size: .6rem; color: var(--dim); text-transform: uppercase; letter-spacing: .06em; margin-top: 1px; }
+    .stats-row.tier2 .stat-val { font-size: .8rem; color: var(--dim); }
+    .stats-row.tier2 { border-top: 1px solid var(--border); padding-top: .45rem; }
+
+    /* form */
+    .form-row { display: flex; gap: 2px; flex-wrap: wrap; margin-bottom: .45rem; }
+    .form-sq {
+      width: 17px; height: 17px; border-radius: 3px;
+      font-size: .55rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .form-sq.w { background: rgba(63,185,80,.18); color: var(--green); border: 1px solid rgba(63,185,80,.45); }
+    .form-sq.l { background: rgba(248,81,73,.12); color: var(--red);   border: 1px solid rgba(248,81,73,.4);  }
+
+    /* streak */
+    .streak-tag { font-size: .7rem; font-weight: 600; }
+    .streak-tag.win  { color: var(--green); }
+    .streak-tag.loss { color: var(--red);   }
+
+    /* ── Detail panel ── */
+    .detail-panel {
+      background: var(--surface); border: 1px solid var(--border); border-radius: var(--r);
+      padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; display: none;
+    }
+    .detail-panel.open { display: block; }
+    .detail-head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; }
+    .detail-head h2 { font-size: 1rem; font-weight: 700; }
+    .detail-close { margin-left: auto; cursor: pointer; color: var(--dim); font-size: 1.1rem; padding: .25rem; }
+    .detail-close:hover { color: var(--text); }
+
+    /* 2-col row for top heroes + matches */
+    .detail-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.25rem; }
+    @media (max-width: 720px) { .detail-cols, .detail-tier2 { grid-template-columns: 1fr !important; } }
+
+    /* 3-col row for Tier 2 */
+    .detail-tier2 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+
+    .detail-block h3 {
+      font-size: .65rem; color: var(--dim); text-transform: uppercase;
+      letter-spacing: .1em; font-weight: 600; margin-bottom: .6rem;
+      padding-bottom: .4rem; border-bottom: 1px solid var(--border);
+    }
+
+    /* hero table in detail */
+    .hero-rows  { display: flex; flex-direction: column; gap: .3rem; }
+    .hero-row   { display: flex; align-items: center; gap: .5rem; font-size: .8rem; padding: .3rem 0; }
+    .hero-name  { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .hero-games { color: var(--dim); font-size: .72rem; width: 48px; text-align: right; flex-shrink: 0; }
+    .hero-wr    { font-weight: 700; font-size: .8rem; width: 38px; text-align: right; flex-shrink: 0; }
+    .hero-bar-wrap { width: 44px; flex-shrink: 0; }
+    .hero-bar-bg   { height: 3px; background: var(--border); border-radius: 2px; }
+    .hero-bar-fill { height: 100%; border-radius: 2px; }
+
+    /* KDA trend mini chart */
+    .kda-wrap { margin-top: .875rem; }
+    .kda-wrap canvas { max-height: 100px; }
+
+    /* match table */
+    .match-tbl { width: 100%; border-collapse: collapse; font-size: .77rem; }
+    .match-tbl th { text-align: left; color: var(--dim); font-weight: 500; font-size: .65rem; text-transform: uppercase; letter-spacing: .06em; padding: .25rem .4rem; border-bottom: 1px solid var(--border); }
+    .match-tbl td { padding: .35rem .4rem; border-bottom: 1px solid var(--border); }
+    .match-tbl tr:last-child td { border-bottom: none; }
+    .match-tbl .w { color: var(--green); font-weight: 700; }
+    .match-tbl .l { color: var(--red);   font-weight: 700; }
+
+    /* Role / duration tables */
+    .role-tbl, .dur-tbl { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    .role-tbl td, .dur-tbl td { padding: .35rem .4rem; border-bottom: 1px solid var(--border); }
+    .role-tbl tr:last-child td, .dur-tbl tr:last-child td { border-bottom: none; }
+    .role-wr-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 3px; }
+    .role-wr-fill { height: 100%; border-radius: 2px; }
+
+    /* Consistency panel */
+    .consistency-grid { display: flex; flex-direction: column; gap: .5rem; }
+    .cons-row { display: flex; justify-content: space-between; align-items: center; font-size: .8rem; padding: .3rem 0; border-bottom: 1px solid var(--border); }
+    .cons-row:last-child { border-bottom: none; }
+    .cons-lbl { color: var(--dim); }
+    .cons-val { font-weight: 700; }
+
+    /* ── Group charts ── */
+    .charts-section  { margin-bottom: 1.5rem; }
+    .charts-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: .875rem; }
+    .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 1rem 1.125rem; }
+    .chart-card h3  { font-size: .7rem; color: var(--dim); text-transform: uppercase; letter-spacing: .1em; font-weight: 600; margin-bottom: .75rem; }
+    .chart-card canvas { max-height: 170px; }
+
+    /* ── Role heatmap table ── */
+    .role-heatmap-section { margin-bottom: 1.5rem; }
+    .role-heat-wrap { overflow-x: auto; }
+    .role-heat-tbl { border-collapse: collapse; font-size: .78rem; width: 100%; }
+    .role-heat-tbl th { padding: .4rem .75rem; text-align: center; color: var(--dim); font-size: .65rem; text-transform: uppercase; letter-spacing: .08em; border-bottom: 2px solid var(--border); }
+    .role-heat-tbl th.player-col { text-align: left; }
+    .role-heat-tbl td { padding: .4rem .75rem; text-align: center; border-bottom: 1px solid var(--border); }
+    .role-heat-tbl td.player-name { text-align: left; font-weight: 600; color: var(--gold); }
+    .role-heat-tbl tr:last-child td { border-bottom: none; }
+
+    /* ── Synergy ── */
+    .synergy-section { margin-bottom: 1.5rem; }
+    .synergy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: .875rem; }
+    .synergy-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: .875rem; }
+    .synergy-card h4 { font-size: .75rem; font-weight: 700; margin-bottom: .5rem; color: var(--gold); }
+    .peer-row { display: flex; justify-content: space-between; align-items: center; font-size: .77rem; padding: .25rem 0; border-bottom: 1px solid var(--border); }
+    .peer-row:last-child { border-bottom: none; }
+    .peer-games { font-size: .7rem; color: var(--dim); }
+    .peer-wr { font-weight: 700; }
+
+    /* ── States ── */
+    .state-box { text-align: center; padding: 4rem 2rem; color: var(--dim); }
+    .err-box { text-align: center; padding: 1.5rem; color: var(--red); background: rgba(248,81,73,.08); border: 1px solid rgba(248,81,73,.35); border-radius: var(--r); }
+    .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .75s linear infinite; vertical-align: middle; margin-right: .4rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    footer { text-align: center; padding: 2rem; color: var(--dim); font-size: .72rem; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <span style="font-size:1.2rem">⚔</span>
+    <h1>Dota 2 Friend Tracker</h1>
+  </div>
+  <div class="header-right">
+    <span id="status"></span>
+    <button class="btn" id="refresh-btn" onclick="loadDashboard()">↻ Refresh</button>
+  </div>
+</header>
+<main id="main">
+  <div class="state-box"><span class="spinner"></span>Connecting to API…</div>
+</main>
+
+<script>
+'use strict';
+
+const MEDALS = {1:'Herald',2:'Guardian',3:'Crusader',4:'Archon',5:'Legend',6:'Ancient',7:'Divine',8:'Immortal'};
+const MEDAL_HEX = {1:'#9aa0a6',2:'#5ea85e',3:'#3d9e8e',4:'#4d9de0',5:'#9b5de5',6:'#f5a623',7:'#e84545',8:'#ffd700'};
+const ROLE_ORDER = ['Carry','Mid','Offlane','Support','Jungle'];
+
+let heroIndex = {}, data = null, activeFriend = null;
+const charts = {};
+
+// ── Utilities ─────────────────────────────────────────────────────────────────
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function heroName(id) { return heroIndex[id] || `Hero ${id}`; }
+function dur(s) { return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; }
+function ago(ts) { const d=Math.floor(Date.now()/1000-ts); return d<3600?`${Math.floor(d/60)}m`:d<86400?`${Math.floor(d/3600)}h`:`${Math.floor(d/86400)}d`; }
+function displayName(f) { return f.label || f.personaname || `#${f.account_id}`; }
+function wrClass(w) { return w>=52?'good':w>=48?'ok':'bad'; }
+function wrColor(w) { return w>=52?'var(--green)':w>=48?'var(--gold)':'var(--red)'; }
+function wrColorHex(w) { return w>=52?'#3fb950':w>=48?'#c89b3c':'#f85149'; }
+function consistencyLabel(std) { return std===0?'—':std<0.6?'Consistent':std<1.2?'Average':'Volatile'; }
+function consistencyColor(std) { return std===0?'var(--dim)':std<0.6?'var(--green)':std<1.2?'var(--gold)':'var(--red)'; }
+
+function rankBadge(rt) {
+  if (!rt) return `<span class="rank-badge" style="background:#21262d;color:var(--dim)">Unranked</span>`;
+  const medal=Math.floor(rt/10), stars=rt%10, col=MEDAL_HEX[medal]||'#888';
+  return `<span class="rank-badge" style="background:${col}22;color:${col};border:1px solid ${col}44">${MEDALS[medal]||'?'}${stars?' '+'★'.repeat(stars):''}</span>`;
+}
+
+// ── Friend card ───────────────────────────────────────────────────────────────
+function buildCard(f) {
+  const name = displayName(f);
+  const steamName = f.label && f.personaname && f.personaname!==f.label ? f.personaname : '';
+  const avatar = f.avatarfull
+    ? `<img src="${esc(f.avatarfull)}" class="avatar" alt="" onerror="this.outerHTML='<div class=\\'avatar-fb\\'>⚔</div>'">`
+    : `<div class="avatar-fb">⚔</div>`;
+  const form = (f.recent_form||[]).slice(0,10).map(w=>`<span class="form-sq ${w?'w':'l'}">${w?'W':'L'}</span>`).join('');
+  const s = f.current_streak||0;
+  const streakHtml = s>=3?`<div class="streak-tag win">↑ ${s}W streak</div>`:s<=-3?`<div class="streak-tag loss">↓ ${Math.abs(s)}L streak</div>`:'';
+
+  return `
+<div class="friend-card" id="card-${f.account_id}" onclick="selectFriend(${f.account_id})">
+  <div class="card-top">
+    ${avatar}
+    <div class="card-names">
+      <div class="card-label">${esc(name)}</div>
+      ${steamName?`<div class="card-steam">${esc(steamName)}</div>`:''}
+    </div>
+  </div>
+  ${rankBadge(f.rank_tier)}
+  <div class="wr-row">
+    <span class="wr-pct ${wrClass(f.winrate)}">${f.winrate}%</span>
+    <span class="wr-rec">${f.wins}W&nbsp;/&nbsp;${f.losses}L</span>
+  </div>
+  <div class="prog-bar"><div class="prog-fill" style="width:${f.winrate}%;background:${wrColor(f.winrate)}"></div></div>
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-val">${(f.avg_kda||0).toFixed(2)}</div><div class="stat-lbl">KDA</div></div>
+    <div class="stat-box"><div class="stat-val">${Math.round(f.avg_gpm||0)}</div><div class="stat-lbl">GPM</div></div>
+    <div class="stat-box"><div class="stat-val">${Math.round(f.avg_xpm||0)}</div><div class="stat-lbl">XPM</div></div>
+  </div>
+  <div class="stats-row tier2">
+    <div class="stat-box"><div class="stat-val">${(f.avg_hero_damage_per_min||0).toFixed(0)}</div><div class="stat-lbl">DMG/m</div></div>
+    <div class="stat-box"><div class="stat-val">${(f.avg_last_hits_per_min||0).toFixed(1)}</div><div class="stat-lbl">LH/m</div></div>
+    <div class="stat-box"><div class="stat-val">${f.hero_pool_size||0}</div><div class="stat-lbl">Pool</div></div>
+  </div>
+  <div class="form-row">${form}</div>
+  ${streakHtml}
+</div>`;
+}
+
+// ── Detail panel ──────────────────────────────────────────────────────────────
+function buildDetail(f) {
+  const name = displayName(f);
+
+  // Top heroes
+  const heroHtml = (f.top_heroes||[]).slice(0,5).map(h => {
+    const wr = h.winrate||0, col = wr>=55?'var(--green)':wr>=45?'var(--gold)':'var(--red)';
+    return `<div class="hero-row">
+      <span class="hero-name">${esc(heroName(h.hero_id))}</span>
+      <span class="hero-games">${h.games}g</span>
+      <div class="hero-bar-wrap"><div class="hero-bar-bg"><div class="hero-bar-fill" style="width:${Math.min(wr,100)}%;background:${col}"></div></div></div>
+      <span class="hero-wr" style="color:${col}">${wr}%</span>
+    </div>`;
+  }).join('') || '<div style="color:var(--dim);font-size:.8rem">No data</div>';
+
+  // Recent matches
+  const matchHtml = (f.recent_matches||[]).slice(0,10).map(m => {
+    const wl = m.won?'w':'l';
+    return `<tr>
+      <td>${esc(heroName(m.hero_id))}</td>
+      <td>${m.kills}/${m.deaths}/${m.assists}</td>
+      <td>${m.gold_per_min}</td>
+      <td>${dur(m.duration)}</td>
+      <td style="color:var(--dim)">${ago(m.start_time)}</td>
+      <td class="${wl}">${m.won?'W':'L'}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" style="color:var(--dim)">No data</td></tr>';
+
+  // Role breakdown
+  const roleStats = f.role_stats||{};
+  const roleHtml = ROLE_ORDER.filter(r => roleStats[r]).map(role => {
+    const rs = roleStats[role];
+    const wr = rs.winrate||0, col = wrColorHex(wr);
+    return `<tr>
+      <td>${role}</td>
+      <td style="color:var(--dim)">${rs.games}g</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="role-wr-bar" style="width:60px"><div class="role-wr-fill" style="width:${Math.min(wr,100)}%;background:${col}"></div></div>
+          <span style="color:${col};font-weight:700">${wr}%</span>
+        </div>
+      </td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="3" style="color:var(--dim)">No role data in recent 20 matches</td></tr>';
+
+  // Duration breakdown
+  const durStats = f.duration_stats||{};
+  const durHtml = ['<30min','30-45min','>45min'].filter(k => durStats[k]).map(key => {
+    const ds = durStats[key], wr = ds.winrate||0, col = wrColorHex(wr);
+    return `<tr>
+      <td>${key}</td>
+      <td style="color:var(--dim)">${ds.games}g</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="role-wr-bar" style="width:60px"><div class="role-wr-fill" style="width:${Math.min(wr,100)}%;background:${col}"></div></div>
+          <span style="color:${col};font-weight:700">${wr}%</span>
+        </div>
+      </td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="3" style="color:var(--dim)">No data</td></tr>';
+
+  // Consistency
+  const kdaStd = f.kda_std||0, gpmStd = f.gpm_std||0;
+  const dmgMin = (f.avg_hero_damage_per_min||0).toFixed(0);
+  const lhMin  = (f.avg_last_hits_per_min||0).toFixed(2);
+  const twrDmg = Math.round(f.avg_tower_damage||0);
+
+  return `
+<div class="detail-head">
+  ${rankBadge(f.rank_tier)}
+  <h2>${esc(name)}</h2>
+  <span class="detail-close" onclick="closeDetail()">✕</span>
+</div>
+
+<div class="detail-cols">
+  <div class="detail-block">
+    <h3>Top Heroes</h3>
+    <div class="hero-rows">${heroHtml}</div>
+    <div class="kda-wrap">
+      <div class="section-title" style="margin-top:.875rem">KDA per match (recent 20)</div>
+      <canvas id="chart-kda-trend" style="max-height:100px"></canvas>
+    </div>
+  </div>
+  <div class="detail-block">
+    <h3>Recent Matches</h3>
+    <table class="match-tbl">
+      <thead><tr><th>Hero</th><th>K/D/A</th><th>GPM</th><th>Dur</th><th>When</th><th></th></tr></thead>
+      <tbody>${matchHtml}</tbody>
+    </table>
+  </div>
+</div>
+
+<div class="detail-tier2">
+  <div class="detail-block">
+    <h3>Role Performance (last 20)</h3>
+    <table class="role-tbl">
+      <tbody>${roleHtml}</tbody>
+    </table>
+  </div>
+  <div class="detail-block">
+    <h3>Game Duration (last 20)</h3>
+    <table class="dur-tbl">
+      <tbody>${durHtml}</tbody>
+    </table>
+  </div>
+  <div class="detail-block">
+    <h3>Consistency &amp; Impact</h3>
+    <div class="consistency-grid">
+      <div class="cons-row">
+        <span class="cons-lbl">KDA variance</span>
+        <span class="cons-val" style="color:${consistencyColor(kdaStd)}">${kdaStd === 0 ? '—' : kdaStd} — ${consistencyLabel(kdaStd)}</span>
+      </div>
+      <div class="cons-row">
+        <span class="cons-lbl">GPM variance</span>
+        <span class="cons-val" style="color:${consistencyColor(gpmStd/100)}">${gpmStd === 0 ? '—' : '±'+gpmStd}</span>
+      </div>
+      <div class="cons-row">
+        <span class="cons-lbl">Avg hero dmg/min</span>
+        <span class="cons-val">${dmgMin}</span>
+      </div>
+      <div class="cons-row">
+        <span class="cons-lbl">Avg LH/min</span>
+        <span class="cons-val">${lhMin}</span>
+      </div>
+      <div class="cons-row">
+        <span class="cons-lbl">Avg tower dmg</span>
+        <span class="cons-val">${twrDmg.toLocaleString()}</span>
+      </div>
+      <div class="cons-row">
+        <span class="cons-lbl">Hero pool (last 20)</span>
+        <span class="cons-val">${f.hero_pool_size||0} heroes</span>
+      </div>
+    </div>
+  </div>
+</div>`;
+}
+
+function renderKdaTrend(f) {
+  const canvas = document.getElementById('chart-kda-trend');
+  if (!canvas) return;
+  if (charts.kdaTrend) charts.kdaTrend.destroy();
+  const matches = [...(f.recent_matches||[])].reverse();
+  charts.kdaTrend = new Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: matches.map((_,i) => i+1),
+      datasets: [{
+        data: matches.map(m => m.kda!=null?m.kda:+((m.kills+m.assists)/Math.max(m.deaths,1)).toFixed(2)),
+        backgroundColor: matches.map(m => m.won?'rgba(63,185,80,.8)':'rgba(248,81,73,.8)'),
+        borderRadius: 3, borderSkipped: false,
+      }]
+    },
+    options: {
+      plugins: { legend:{display:false}, tooltip:{callbacks:{title:c=>`Match ${c[0].label}`,label:c=>` KDA: ${c.raw.toFixed(2)}`}} },
+      scales: {
+        x: { ticks:{color:'#8b949e',font:{size:9}}, grid:{color:'#21262d'} },
+        y: { ticks:{color:'#8b949e',font:{size:9}}, grid:{color:'#21262d'}, beginAtZero:true }
+      }
+    }
+  });
+}
+
+// ── Group charts ──────────────────────────────────────────────────────────────
+function renderGroupCharts(friends) {
+  const labels = friends.map(f => displayName(f));
+  const base = {
+    plugins: { legend:{display:false} },
+    scales: {
+      x: { ticks:{color:'#8b949e'}, grid:{color:'#21262d'} },
+      y: { ticks:{color:'#8b949e'}, grid:{color:'#21262d'} }
+    }
+  };
+
+  const bar = (id, values, colors, yOpts={}) => {
+    if (charts[id]) charts[id].destroy();
+    charts[id] = new Chart(document.getElementById(id), {
+      type: 'bar',
+      data: { labels, datasets:[{ data:values, backgroundColor:colors, borderColor:colors.map(c=>c.replace('0.65','1')), borderWidth:1, borderRadius:4 }] },
+      options: { ...base, scales:{ ...base.scales, y:{ ...base.scales.y, ...yOpts } } }
+    });
+  };
+
+  const wrColors  = friends.map(f => `rgba(${f.winrate>=52?'63,185,80':f.winrate>=48?'200,155,60':'248,81,73'},0.65)`);
+  bar('chart-wr',   friends.map(f=>f.winrate),                    wrColors,      {min:40,max:60,ticks:{color:'#8b949e',callback:v=>v+'%'}});
+  bar('chart-kda',  friends.map(f=>+(f.avg_kda||0).toFixed(2)),   Array(friends.length).fill('rgba(77,157,224,0.65)'), {beginAtZero:true});
+  bar('chart-dmg',  friends.map(f=>+(f.avg_hero_damage_per_min||0).toFixed(0)), Array(friends.length).fill('rgba(224,133,77,0.65)'), {beginAtZero:true});
+
+  // GPM + XPM grouped
+  if (charts.gpm) charts.gpm.destroy();
+  charts.gpm = new Chart(document.getElementById('chart-gpm'), {
+    type: 'bar',
+    data: { labels, datasets:[
+      { label:'GPM', data:friends.map(f=>Math.round(f.avg_gpm||0)), backgroundColor:'rgba(200,155,60,.65)', borderColor:'#c89b3c', borderWidth:1, borderRadius:4 },
+      { label:'XPM', data:friends.map(f=>Math.round(f.avg_xpm||0)), backgroundColor:'rgba(155,93,229,.65)', borderColor:'#9b5de5', borderWidth:1, borderRadius:4 }
+    ]},
+    options: { plugins:{legend:{display:true,labels:{color:'#8b949e',boxWidth:12,font:{size:11}}}}, scales:{x:{ticks:{color:'#8b949e'},grid:{color:'#21262d'}},y:{ticks:{color:'#8b949e'},grid:{color:'#21262d'},beginAtZero:true}} }
+  });
+}
+
+// ── Role heatmap ──────────────────────────────────────────────────────────────
+function buildRoleHeatmap(friends) {
+  const roles = ROLE_ORDER;
+  const headerCols = roles.map(r=>`<th>${r}</th>`).join('');
+  const rows = friends.map(f => {
+    const rs = f.role_stats||{};
+    const cells = roles.map(role => {
+      const d = rs[role];
+      if (!d || d.games === 0) return `<td style="color:var(--dim)">—</td>`;
+      const wr = d.winrate, col = wrColorHex(wr);
+      return `<td style="background:${col}18;color:${col};font-weight:700">${wr}%<br><span style="font-size:.65rem;color:var(--dim);font-weight:400">${d.games}g</span></td>`;
+    }).join('');
+    return `<tr><td class="player-name">${esc(displayName(f))}</td>${cells}</tr>`;
+  }).join('');
+  return `<div class="role-heat-wrap"><table class="role-heat-tbl">
+    <thead><tr><th class="player-col">Player</th>${headerCols}</tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>`;
+}
+
+// ── Synergy (async peer load) ─────────────────────────────────────────────────
+function buildSynergyCards(friends) {
+  return friends.map(f => {
+    const rows = friends.filter(o=>o.account_id!==f.account_id).map(o =>
+      `<div class="peer-row">
+        <span>${esc(displayName(o))}</span>
+        <span id="peer-${f.account_id}-${o.account_id}" class="peer-games">…</span>
+      </div>`
+    ).join('');
+    return `<div class="synergy-card"><h4>${esc(displayName(f))}</h4>${rows}</div>`;
+  }).join('');
+}
+
+async function loadPeerData(friends) {
+  for (const f of friends) {
+    try {
+      const res = await fetch(`/players/${f.account_id}/peers`);
+      if (!res.ok) continue;
+      const peers = await res.json();
+      const pm = Object.fromEntries(peers.map(p=>[p.account_id,p]));
+      for (const o of friends) {
+        if (o.account_id===f.account_id) continue;
+        const el = document.getElementById(`peer-${f.account_id}-${o.account_id}`);
+        if (!el) continue;
+        const p = pm[o.account_id];
+        if (p && p.with_games>0) {
+          const wr = Math.round(p.with_win/p.with_games*100), col = wrColor(wr);
+          el.innerHTML = `${p.with_games}g <span class="peer-wr" style="color:${col}">${wr}%</span>`;
+        } else { el.textContent='—'; }
+      }
+    } catch(_) {}
+  }
+}
+
+// ── Select / close ────────────────────────────────────────────────────────────
+function selectFriend(id) {
+  const panel = document.getElementById('detail-panel');
+  if (activeFriend===id) { closeDetail(); return; }
+  if (activeFriend) document.getElementById(`card-${activeFriend}`)?.classList.remove('active');
+  activeFriend = id;
+  document.getElementById(`card-${id}`)?.classList.add('active');
+  const f = data.friends.find(f=>f.account_id===id);
+  if (!f) return;
+  panel.innerHTML = buildDetail(f);
+  panel.classList.add('open');
+  setTimeout(()=>renderKdaTrend(f), 30);
+  panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+function closeDetail() {
+  if (activeFriend) document.getElementById(`card-${activeFriend}`)?.classList.remove('active');
+  activeFriend = null;
+  const panel = document.getElementById('detail-panel');
+  panel.classList.remove('open');
+  panel.innerHTML = '';
+  if (charts.kdaTrend) { charts.kdaTrend.destroy(); delete charts.kdaTrend; }
+}
+
+// ── Status ────────────────────────────────────────────────────────────────────
+function setStatus(state, msg) {
+  const el = document.getElementById('status');
+  if (state==='loading') el.innerHTML=`<span class="spinner"></span>${msg||'Loading…'}`;
+  else if (state==='ok')  el.textContent=`Updated ${new Date().toLocaleTimeString()}`;
+  else                    el.innerHTML=`<span style="color:var(--red)">${msg||'Error'}</span>`;
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function render() {
+  const friends = data.friends;
+  if (!friends.length) {
+    document.getElementById('main').innerHTML='<div class="state-box">No friends tracked. Add players via the CLI.</div>';
+    return;
+  }
+
+  document.getElementById('main').innerHTML = `
+    <section class="cards-section">
+      <div class="section-title">Players — click a card for details</div>
+      <div class="cards-grid">${friends.map(buildCard).join('')}</div>
+    </section>
+
+    <div class="detail-panel" id="detail-panel"></div>
+
+    <section class="charts-section">
+      <div class="section-title">Group Comparison (last 20 matches)</div>
+      <div class="charts-row">
+        <div class="chart-card"><h3>Win Rate (career)</h3><canvas id="chart-wr"></canvas></div>
+        <div class="chart-card"><h3>Avg KDA</h3><canvas id="chart-kda"></canvas></div>
+        <div class="chart-card"><h3>Avg GPM / XPM</h3><canvas id="chart-gpm"></canvas></div>
+        <div class="chart-card"><h3>Avg Hero Dmg / min</h3><canvas id="chart-dmg"></canvas></div>
+      </div>
+    </section>
+
+    <section class="role-heatmap-section">
+      <div class="section-title">Role Performance Heatmap (last 20 matches per player)</div>
+      ${buildRoleHeatmap(friends)}
+    </section>
+
+    <section class="synergy-section">
+      <div class="section-title">Group Synergy — games &amp; win rate together</div>
+      <div class="synergy-grid" id="synergy-grid">${buildSynergyCards(friends)}</div>
+    </section>
+
+    <footer>Powered by <a href="https://www.opendota.com" target="_blank">OpenDota API</a>
+      &nbsp;·&nbsp; <a href="/docs" target="_blank">API Docs</a>
+      &nbsp;·&nbsp; Run <code>python cli.py refresh-data</code> to populate probability model data
+    </footer>`;
+
+  setTimeout(() => renderGroupCharts(friends), 30);
+  loadPeerData(friends);
+}
+
+// ── Bootstrap ─────────────────────────────────────────────────────────────────
+async function loadDashboard() {
+  document.getElementById('refresh-btn').disabled = true;
+  setStatus('loading');
+  try {
+    const [dashRes, heroRes] = await Promise.all([
+      fetch('/dashboard/?limit=20'),
+      fetch('/heroes/reference'),
+    ]);
+    if (!dashRes.ok) throw new Error(`API ${dashRes.status}: ${dashRes.statusText}`);
+    data = await dashRes.json();
+    if (heroRes.ok) { const heroes = await heroRes.json(); heroes.forEach(h => { heroIndex[h.id]=h.localized_name; }); }
+    render();
+    setStatus('ok');
+  } catch(e) {
+    document.getElementById('main').innerHTML=`<div class="err-box"><strong>Could not reach the API</strong><br>${esc(e.message)}<br><br><small>Start the server: <code>python cli.py serve --reload</code></small></div>`;
+    setStatus('error','API unreachable');
+  } finally {
+    document.getElementById('refresh-btn').disabled = false;
+  }
+}
+
+loadDashboard();
+</script>
+</body>
+</html>
