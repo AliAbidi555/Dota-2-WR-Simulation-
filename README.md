@@ -12,28 +12,17 @@ Data comes from the free [OpenDota API](https://docs.opendota.com/) and [Stratz 
 
 1. Go to [**Releases**](../../releases) and download the latest `dota-tracker-windows.zip`
 2. Extract the zip anywhere (e.g. `C:\dota-tracker\`)
-3. Edit `friends.json` to add your group's Steam account IDs:
+3. Double-click **`dota-tracker.exe`**
 
-```json
-{
-  "friends": [
-    { "account_id": 123456789, "label": "YourName" },
-    { "account_id": 987654321, "label": "FriendName" }
-  ]
-}
-```
+A console window walks you through first-time setup:
 
-> Find any player's 32-bit account ID at [steamid.io](https://steamid.io) or from their OpenDota profile URL (`opendota.com/players/<account_id>`).
+- **Step 1** — paste your group's Steam IDs (32-bit or 64-bit, both accepted) and nicknames
+- **Step 2** — paste a free [Stratz API key](https://stratz.com/api) (optional but recommended for bracket-specific hero meta)
+- **Step 3** — the exe pulls 200 matches per player from OpenDota and builds your group's data files (~5–15 min on first run)
 
-4. Double-click **`dota-tracker.exe`** — the dashboard opens in your browser automatically at `http://localhost:8000`
+When it's done, the browser opens automatically at `http://localhost:8000` with your dashboard.
 
-5. On first run, populate the probability model data:
-
-```
-http://localhost:8000/docs
-```
-
-Call `POST /probability/reload` after running the CLI refresh commands below, or click the button in the dashboard.
+The exe is **fully self-contained** — every per-group data file is generated locally on first run. Nothing from the developer's machine is bundled. Subsequent launches start in seconds.
 
 ---
 

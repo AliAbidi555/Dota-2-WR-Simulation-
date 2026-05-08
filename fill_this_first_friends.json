@@ -1,8 +1,0 @@
-{
-  "_readme": "Find your 32-bit Steam account ID at https://steamid.io or from your OpenDota profile URL (opendota.com/players/<account_id>). Fill in your group below, then rename this file to 'friends.json' and restart dota-tracker.exe.",
-  "friends": [
-    { "account_id": 123456789, "label": "Player1" },
-    { "account_id": 987654321, "label": "Player2" },
-    { "account_id": 111111111, "label": "Player3" }
-  ]
-}

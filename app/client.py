@@ -74,13 +74,20 @@ class OpenDotaClient:
 
         timeout = SLOW_TIMEOUT if _is_slow(path) else DEFAULT_TIMEOUT
 
-        try:
-            return await self._fetch(path, params, timeout, key)
-        except (httpx.ReadTimeout, httpx.ConnectError, httpx.RemoteProtocolError):
-            # One retry with the slow timeout — OpenDota occasionally takes a
-            # second pass to warm the cache for heavy aggregate queries.
-            await asyncio.sleep(0.5)
-            return await self._fetch(path, params, SLOW_TIMEOUT, key)
+        # Retry on transient errors (timeout / 5xx / connection).
+        # OpenDota's heavy aggregate endpoints occasionally need a warm-up pass.
+        last_exc: Exception | None = None
+        for attempt, attempt_timeout in enumerate((timeout, SLOW_TIMEOUT, SLOW_TIMEOUT)):
+            try:
+                return await self._fetch(path, params, attempt_timeout, key)
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code < 500:
+                    raise  # 4xx errors aren't retryable
+                last_exc = e
+            except (httpx.ReadTimeout, httpx.ConnectError, httpx.RemoteProtocolError) as e:
+                last_exc = e
+            await asyncio.sleep(0.75 * (attempt + 1))   # back off
+        raise last_exc  # type: ignore[misc]
 
     async def _fetch(self, path: str, params: dict, timeout: float, cache_key: str) -> Any:
         response = await self._client.get(path, params=params, timeout=timeout)
