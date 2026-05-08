@@ -205,6 +205,26 @@
     .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--gold); border-radius: 50%; animation: spin .75s linear infinite; vertical-align: middle; margin-right: .4rem; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* ── Draft Predictor ── */
+    .draft-section  { margin-bottom: 1.5rem; }
+    .draft-panel    { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.5rem; }
+    .draft-grid     { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: .875rem; }
+    @media (max-width: 680px) { .draft-grid { grid-template-columns: 1fr; } }
+    .draft-team-hdr { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: .35rem .625rem; border-radius: 4px; margin-bottom: .625rem; }
+    .draft-team.radiant .draft-team-hdr { color: var(--green); background: rgba(63,185,80,.1); border: 1px solid rgba(63,185,80,.25); }
+    .draft-team.dire    .draft-team-hdr { color: var(--red);   background: rgba(248,81,73,.1); border: 1px solid rgba(248,81,73,.25); }
+    .draft-slot { display: grid; grid-template-columns: 1fr 1.5fr 0.8fr; gap: .35rem; margin-bottom: .35rem; align-items: center; }
+    .draft-slot select, .draft-slot input {
+      background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+      padding: .3rem .45rem; border-radius: 4px; font-size: .78rem; width: 100%;
+      outline: none; transition: border-color .15s;
+    }
+    .draft-slot select:focus, .draft-slot input:focus { border-color: var(--gold); }
+    .slot-hero.err { border-color: var(--red) !important; }
+    .draft-actions  { display: flex; justify-content: center; padding: .625rem 0 .25rem; }
+    .btn-predict    { background: var(--gold); color: #0d1117; font-weight: 700; font-size: .9rem; padding: .5rem 2.5rem; border-color: transparent; }
+    .btn-predict:hover { background: #d4a848; border-color: transparent; }
+
     footer { text-align: center; padding: 2rem; color: var(--dim); font-size: .72rem; border-top: 1px solid var(--border); }
   </style>
 </head>
@@ -230,7 +250,7 @@ const MEDALS = {1:'Herald',2:'Guardian',3:'Crusader',4:'Archon',5:'Legend',6:'An
 const MEDAL_HEX = {1:'#9aa0a6',2:'#5ea85e',3:'#3d9e8e',4:'#4d9de0',5:'#9b5de5',6:'#f5a623',7:'#e84545',8:'#ffd700'};
 const ROLE_ORDER = ['Carry','Mid','Offlane','Support','Jungle'];
 
-let heroIndex = {}, data = null, activeFriend = null;
+let heroIndex = {}, heroNameToId = {}, data = null, activeFriend = null;
 const charts = {};
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
@@ -613,6 +633,8 @@ function render() {
       <div class="synergy-grid" id="synergy-grid">${buildSynergyCards(friends)}</div>
     </section>
 
+    ${buildDraftPanel(friends)}
+
     <footer>Powered by <a href="https://www.opendota.com" target="_blank">OpenDota API</a>
       &nbsp;·&nbsp; <a href="/docs" target="_blank">API Docs</a>
       &nbsp;·&nbsp; Run <code>python cli.py refresh-data</code> to populate probability model data
@@ -620,6 +642,113 @@ function render() {
 
   setTimeout(() => renderGroupCharts(friends), 30);
   loadPeerData(friends);
+}
+
+// ── Draft Predictor ───────────────────────────────────────────────────────────
+const ROLES = [['1','Carry'],['2','Mid'],['3','Offlane'],['4','Sup 4'],['5','Sup 5']];
+
+function buildHeroDatalist() {
+  return Object.values(heroIndex).sort().map(n=>`<option value="${esc(n)}">`).join('');
+}
+
+function buildDraftPanel(friends) {
+  const friendOpts = friends.map(f=>`<option value="${f.account_id}">${esc(displayName(f))}</option>`).join('');
+  const roleOpts   = ROLES.map(([v,l])=>`<option value="${v}">${l}</option>`).join('');
+
+  const slots = (team) => [0,1,2,3,4].map(i => {
+    const defaultRole = ROLES[i][0];
+    const ro = ROLES.map(([v,l])=>`<option value="${v}"${v===defaultRole?' selected':''}>${l}</option>`).join('');
+    return `<div class="draft-slot" data-team="${team}" data-idx="${i}">
+      <select class="slot-friend"><option value="">Unknown</option>${friendOpts}</select>
+      <input  class="slot-hero" list="hero-dl" placeholder="Hero…" autocomplete="off">
+      <select class="slot-role">${ro}</select>
+    </div>`;
+  }).join('');
+
+  return `
+<section class="draft-section">
+  <div class="section-title">Win Probability — Draft Predictor</div>
+  <div class="draft-panel">
+    <div class="draft-grid">
+      <div class="draft-team radiant">
+        <div class="draft-team-hdr">Radiant</div>
+        ${slots('radiant')}
+      </div>
+      <div class="draft-team dire">
+        <div class="draft-team-hdr">Dire</div>
+        ${slots('dire')}
+      </div>
+    </div>
+    <datalist id="hero-dl">${buildHeroDatalist()}</datalist>
+    <div class="draft-actions">
+      <button class="btn btn-predict" id="predict-btn" onclick="predict()">Predict Win %</button>
+    </div>
+    <div id="predict-result"></div>
+  </div>
+</section>`;
+}
+
+async function predict() {
+  const slots = document.querySelectorAll('.draft-slot');
+  const players = [];
+  let valid = true;
+
+  slots.forEach(el => {
+    const heroInput = el.querySelector('.slot-hero');
+    const heroId    = heroNameToId[heroInput.value.trim().toLowerCase()] || null;
+    heroInput.classList.toggle('err', !heroId);
+    if (!heroId) valid = false;
+    players.push({
+      account_id: el.querySelector('.slot-friend').value ? parseInt(el.querySelector('.slot-friend').value) : null,
+      hero_id:    heroId || 0,
+      role:       parseInt(el.querySelector('.slot-role').value),
+      is_radiant: el.dataset.team === 'radiant',
+    });
+  });
+
+  const res_el = document.getElementById('predict-result');
+  if (!valid) {
+    res_el.innerHTML = '<div class="err-box" style="margin-top:.75rem">Enter all 10 hero names (must match exactly — use the autocomplete list).</div>';
+    return;
+  }
+
+  const btn = document.getElementById('predict-btn');
+  btn.disabled = true;
+  res_el.innerHTML = '<div style="text-align:center;padding:1.25rem"><span class="spinner"></span>Predicting…</div>';
+
+  try {
+    const r = await fetch('/probability/predict', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({players}),
+    });
+    if (!r.ok) throw new Error(`${r.status}: ${(await r.text()).slice(0,200)}`);
+    renderPredictResult(await r.json());
+  } catch(e) {
+    res_el.innerHTML = `<div class="err-box" style="margin-top:.75rem">${esc(e.message)}</div>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function renderPredictResult(result) {
+  // Full breakdown rendered in Step 9 — basic placeholder for now
+  const pct  = (result.win_probability_radiant * 100).toFixed(1);
+  const dpct = (100 - result.win_probability_radiant * 100).toFixed(1);
+  const conf = result.confidence;
+  const confColor = conf==='high'?'var(--green)':conf==='medium'?'var(--gold)':'var(--dim)';
+  document.getElementById('predict-result').innerHTML = `
+<div style="margin-top:1rem;text-align:center">
+  <div style="display:flex;justify-content:space-between;font-size:.75rem;color:var(--dim);margin-bottom:.3rem">
+    <span style="color:var(--green)">Radiant ${pct}%</span>
+    <span>Confidence: <strong style="color:${confColor}">${conf}</strong></span>
+    <span style="color:var(--red)">Dire ${dpct}%</span>
+  </div>
+  <div style="height:18px;border-radius:9px;overflow:hidden;background:var(--red);position:relative">
+    <div style="height:100%;width:${pct}%;background:var(--green);border-radius:9px 0 0 9px;transition:width .4s"></div>
+  </div>
+  <div style="margin-top:.75rem;font-size:.8rem;color:var(--dim)">Score diff: <strong style="color:var(--text)">${result.score_diff>0?'+':''}${result.score_diff.toFixed(1)}</strong></div>
+</div>`;
 }
 
 // ── Bootstrap ─────────────────────────────────────────────────────────────────
@@ -633,7 +762,7 @@ async function loadDashboard() {
     ]);
     if (!dashRes.ok) throw new Error(`API ${dashRes.status}: ${dashRes.statusText}`);
     data = await dashRes.json();
-    if (heroRes.ok) { const heroes = await heroRes.json(); heroes.forEach(h => { heroIndex[h.id]=h.localized_name; }); }
+    if (heroRes.ok) { const heroes = await heroRes.json(); heroes.forEach(h => { heroIndex[h.id]=h.localized_name; heroNameToId[h.localized_name.toLowerCase()]=h.id; }); }
     render();
     setStatus('ok');
   } catch(e) {

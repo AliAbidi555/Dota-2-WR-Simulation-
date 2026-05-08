@@ -12,7 +12,9 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.client import close_client
+from app.probability import get_model
 from app.routes import players, matches, friends, dashboard, heroes, analytics
+from app.routes import probability as probability_router
 
 STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
 DASHBOARD_HTML = STATIC_DIR / "dashboard.html"
@@ -20,6 +22,9 @@ DASHBOARD_HTML = STATIC_DIR / "dashboard.html"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    import asyncio
+    loop = asyncio.get_event_loop()
+    await loop.run_in_executor(None, get_model)   # warm up singleton at startup
     yield
     await close_client()
 
@@ -47,6 +52,7 @@ app.include_router(friends.router)
 app.include_router(dashboard.router)
 app.include_router(heroes.router)
 app.include_router(analytics.router)
+app.include_router(probability_router.router)
 
 if STATIC_DIR.exists():
     app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")

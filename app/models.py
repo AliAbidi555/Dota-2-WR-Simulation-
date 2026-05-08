@@ -132,3 +132,78 @@ class AddFriendRequest(BaseModel):
 class MessageResponse(BaseModel):
     message: str
     data: Any = None
+
+
+# ------------------------------------------------------------------ #
+# Win probability — request / response models
+# ------------------------------------------------------------------ #
+
+from pydantic import Field, model_validator
+
+
+class PlayerSlotRequest(BaseModel):
+    account_id: int | None = None   # None = untracked / random opponent
+    hero_id: int
+    role: int = Field(ge=1, le=5)
+    is_radiant: bool
+
+
+class DraftRequest(BaseModel):
+    players: list[PlayerSlotRequest]
+
+    @model_validator(mode="after")
+    def validate_draft(self) -> "DraftRequest":
+        if len(self.players) != 10:
+            raise ValueError(f"Draft must have exactly 10 players, got {len(self.players)}")
+        n_rad = sum(1 for p in self.players if p.is_radiant)
+        if n_rad != 5:
+            raise ValueError(f"Draft must have exactly 5 radiant players, got {n_rad}")
+        return self
+
+
+class PlayerPredictionResponse(BaseModel):
+    label: str
+    hero_id: int
+    role: int
+    baseline_wr: float
+    fit_path: str
+    player_score: float
+    hero_delta_adj: float
+    role_delta_adj: float
+    hero_role_delta_adj: float | None
+    form_delta: float
+
+
+class SynergyEntryResponse(BaseModel):
+    player_a: str
+    player_b: str
+    raw_delta: float
+    n: int
+    adjusted: float
+
+
+class TeamPredictionResponse(BaseModel):
+    players: list[PlayerPredictionResponse]
+    synergy_entries: list[SynergyEntryResponse]
+    synergy_total: float
+    meta_score: float
+    team_score: float
+
+
+class FactorResponse(BaseModel):
+    label: str
+    signal: str
+    value: float
+
+
+class PredictionResponse(BaseModel):
+    radiant: TeamPredictionResponse
+    dire: TeamPredictionResponse
+    matchup_total: float
+    matchup_coverage: float
+    radiant_score: float
+    dire_score: float
+    score_diff: float
+    win_probability_radiant: float
+    confidence: str
+    top_factors: list[FactorResponse]
