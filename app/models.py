@@ -81,9 +81,12 @@ class FriendSummary(BaseModel):
     personaname: str | None = None
     avatarfull: str | None = None
     rank_tier: int | None = None
-    wins: int
-    losses: int
-    winrate: float
+
+    # Career W/L — None when the upstream /wl call failed (vs genuinely 0/0).
+    # Frontend renders "—" rather than "0%" when these are null.
+    wins: int | None = None
+    losses: int | None = None
+    winrate: float | None = None
 
     # Tier 1 — aggregates from recent matches
     avg_kda: float = 0.0
@@ -104,6 +107,10 @@ class FriendSummary(BaseModel):
 
     recent_matches: list[dict] = []
     top_heroes: list[dict] = []       # top 5 by games played
+
+    # Names of upstream calls that failed for this player (e.g. ["wl","heroes"]).
+    # Empty list means everything loaded cleanly.
+    warnings: list[str] = []
 
 
 class DashboardResponse(BaseModel):

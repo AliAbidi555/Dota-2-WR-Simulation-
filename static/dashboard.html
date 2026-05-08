@@ -82,9 +82,10 @@
     /* winrate */
     .wr-row { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: .375rem; }
     .wr-pct { font-size: 1.4rem; font-weight: 800; line-height: 1; }
-    .wr-pct.good { color: var(--green); }
-    .wr-pct.ok   { color: var(--gold);  }
-    .wr-pct.bad  { color: var(--red);   }
+    .wr-pct.good    { color: var(--green); }
+    .wr-pct.ok      { color: var(--gold);  }
+    .wr-pct.bad     { color: var(--red);   }
+    .wr-pct.unknown { color: var(--dim);   }
     .wr-rec { font-size: .7rem; color: var(--dim); text-align: right; }
     .prog-bar  { height: 3px; background: var(--border); border-radius: 2px; margin-bottom: .625rem; overflow: hidden; }
     .prog-fill { height: 100%; border-radius: 2px; }
@@ -259,9 +260,11 @@ function heroName(id) { return heroIndex[id] || `Hero ${id}`; }
 function dur(s) { return `${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`; }
 function ago(ts) { const d=Math.floor(Date.now()/1000-ts); return d<3600?`${Math.floor(d/60)}m`:d<86400?`${Math.floor(d/3600)}h`:`${Math.floor(d/86400)}d`; }
 function displayName(f) { return f.label || f.personaname || `#${f.account_id}`; }
-function wrClass(w) { return w>=52?'good':w>=48?'ok':'bad'; }
-function wrColor(w) { return w>=52?'var(--green)':w>=48?'var(--gold)':'var(--red)'; }
-function wrColorHex(w) { return w>=52?'#3fb950':w>=48?'#c89b3c':'#f85149'; }
+function wrClass(w) { return w==null?'unknown':w>=52?'good':w>=48?'ok':'bad'; }
+function wrColor(w) { return w==null?'var(--dim)':w>=52?'var(--green)':w>=48?'var(--gold)':'var(--red)'; }
+function wrColorHex(w) { return w==null?'#8b949e':w>=52?'#3fb950':w>=48?'#c89b3c':'#f85149'; }
+function wrText(w) { return w==null?'—':`${w}%`; }
+function wlText(wins, losses) { return (wins==null||losses==null)?'— W / — L':`${wins}W&nbsp;/&nbsp;${losses}L`; }
 function consistencyLabel(std) { return std===0?'—':std<0.6?'Consistent':std<1.2?'Average':'Volatile'; }
 function consistencyColor(std) { return std===0?'var(--dim)':std<0.6?'var(--green)':std<1.2?'var(--gold)':'var(--red)'; }
 
@@ -293,10 +296,10 @@ function buildCard(f) {
   </div>
   ${rankBadge(f.rank_tier)}
   <div class="wr-row">
-    <span class="wr-pct ${wrClass(f.winrate)}">${f.winrate}%</span>
-    <span class="wr-rec">${f.wins}W&nbsp;/&nbsp;${f.losses}L</span>
+    <span class="wr-pct ${wrClass(f.winrate)}">${wrText(f.winrate)}</span>
+    <span class="wr-rec">${wlText(f.wins, f.losses)}</span>
   </div>
-  <div class="prog-bar"><div class="prog-fill" style="width:${f.winrate}%;background:${wrColor(f.winrate)}"></div></div>
+  <div class="prog-bar"><div class="prog-fill" style="width:${f.winrate==null?0:f.winrate}%;background:${wrColor(f.winrate)}"></div></div>
   <div class="stats-row">
     <div class="stat-box"><div class="stat-val">${(f.avg_kda||0).toFixed(2)}</div><div class="stat-lbl">KDA</div></div>
     <div class="stat-box"><div class="stat-val">${Math.round(f.avg_gpm||0)}</div><div class="stat-lbl">GPM</div></div>

@@ -40,6 +40,11 @@ async def _build_friend_summary(account_id: int, label: str | None, limit: int) 
         return_exceptions=True,
     )
 
+    warnings: list[str] = []
+    for name, val in (("profile", profile), ("wl", wl), ("recent", recent), ("heroes", heroes)):
+        if isinstance(val, BaseException):
+            warnings.append(f"{name}: {type(val).__name__}")
+
     # ── Profile ───────────────────────────────────────────────────────────────
     persona = label or (
         profile.get("profile", {}).get("personaname") if isinstance(profile, dict) else None
@@ -48,10 +53,16 @@ async def _build_friend_summary(account_id: int, label: str | None, limit: int) 
     rank_tier = profile.get("rank_tier") if isinstance(profile, dict) else None
 
     # ── Win / loss ────────────────────────────────────────────────────────────
-    wins   = wl.get("win", 0)  if isinstance(wl, dict) else 0
-    losses = wl.get("lose", 0) if isinstance(wl, dict) else 0
-    total  = wins + losses
-    winrate = round(wins / total * 100, 1) if total else 0.0
+    # When the /wl call failed, leave fields as None so the UI shows "—" rather
+    # than misleading 0% / 0W-0L.  A successful call with genuinely zero games
+    # still returns wins=0, losses=0, winrate=0.0 (distinct from None).
+    if isinstance(wl, dict):
+        wins   = int(wl.get("win", 0))
+        losses = int(wl.get("lose", 0))
+        total  = wins + losses
+        winrate = round(wins / total * 100, 1) if total else 0.0
+    else:
+        wins, losses, winrate = None, None, None
 
     # ── Enrich recent matches ─────────────────────────────────────────────────
     enriched: list[dict] = []
@@ -166,6 +177,7 @@ async def _build_friend_summary(account_id: int, label: str | None, limit: int) 
         duration_stats=duration_stats,
         recent_matches=enriched,
         top_heroes=top_heroes,
+        warnings=warnings,
     )
 
 

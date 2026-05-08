@@ -1,11 +1,46 @@
 """
 Async client for the OpenDota REST API.
 https://docs.opendota.com/
+
+Resilience features:
+  - Aggregate endpoints (/wl, /heroes, /peers, /totals, /rankings) get a
+    longer 60s timeout because OpenDota recomputes them server-side from
+    the player's full match history.
+  - One automatic retry on read timeout / connection errors before giving up.
+  - In-memory TTL cache (5 min) for read-heavy endpoints so dashboard reloads
+    don't keep hitting OpenDota.
 """
 
-import httpx
+import asyncio
+import time
 from typing import Any
+
+import httpx
+
 from app.config import settings
+
+
+# Per-endpoint timeout overrides (seconds).  Aggregate endpoints recompute
+# from the player's full match history server-side and can take 30-45 s.
+DEFAULT_TIMEOUT  = 30.0
+SLOW_TIMEOUT     = 60.0
+SLOW_PATHS = ("/wl", "/heroes", "/peers", "/totals", "/rankings")
+
+# Simple TTL cache — endpoint path -> (expiry_unix, value).
+# Reset on process restart, which is fine for our use case.
+_TTL_CACHE: dict[str, tuple[float, Any]] = {}
+CACHE_TTL_SECONDS = 300  # 5 minutes
+
+
+def _is_slow(path: str) -> bool:
+    return any(path.endswith(s) for s in SLOW_PATHS)
+
+
+def _cache_key(path: str, params: dict) -> str:
+    if not params:
+        return path
+    parts = "&".join(f"{k}={v}" for k, v in sorted(params.items()))
+    return f"{path}?{parts}"
 
 
 class OpenDotaClient:
@@ -19,14 +54,41 @@ class OpenDotaClient:
         self._client = httpx.AsyncClient(
             base_url=settings.opendota_base_url,
             params=params,
-            timeout=15.0,
+            timeout=DEFAULT_TIMEOUT,
         )
 
     async def _get(self, path: str, **params: Any) -> Any:
-        """Make a GET request and return parsed JSON."""
-        response = await self._client.get(path, params=params)
+        """
+        GET with caching, retry-on-timeout, and per-endpoint timeout overrides.
+
+        - Hot endpoints (5 min TTL cache): /wl, /heroes, /peers, /totals, /rankings
+        - One retry with the slow timeout on httpx.ReadTimeout / ConnectError.
+        """
+        key = _cache_key(path, params)
+        now = time.time()
+
+        # Cache hit?
+        cached = _TTL_CACHE.get(key)
+        if cached and cached[0] > now:
+            return cached[1]
+
+        timeout = SLOW_TIMEOUT if _is_slow(path) else DEFAULT_TIMEOUT
+
+        try:
+            return await self._fetch(path, params, timeout, key)
+        except (httpx.ReadTimeout, httpx.ConnectError, httpx.RemoteProtocolError):
+            # One retry with the slow timeout — OpenDota occasionally takes a
+            # second pass to warm the cache for heavy aggregate queries.
+            await asyncio.sleep(0.5)
+            return await self._fetch(path, params, SLOW_TIMEOUT, key)
+
+    async def _fetch(self, path: str, params: dict, timeout: float, cache_key: str) -> Any:
+        response = await self._client.get(path, params=params, timeout=timeout)
         response.raise_for_status()
-        return response.json()
+        data = response.json()
+        if _is_slow(path):
+            _TTL_CACHE[cache_key] = (time.time() + CACHE_TTL_SECONDS, data)
+        return data
 
     # ------------------------------------------------------------------ #
     # Players

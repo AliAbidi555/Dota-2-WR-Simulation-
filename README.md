@@ -129,6 +129,18 @@ python cli.py refresh-data [--force]
 
 ---
 
+## Diagnostic / smoke test
+
+If the dashboard isn't loading data correctly, run the smoke test to see exactly which API calls are failing and why:
+
+```bash
+python smoke_test.py
+```
+
+It hits every OpenDota endpoint, the probability model, and the FastAPI routes — printing PASS/FAIL with timings and error reasons.
+
+---
+
 ## Building the exe yourself
 
 ```bash
