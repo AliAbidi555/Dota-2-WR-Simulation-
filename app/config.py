@@ -1,7 +1,14 @@
+import sys
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from pathlib import Path
 
-ROOT_DIR = Path(__file__).resolve().parent.parent
+# When running as a PyInstaller bundle, __file__ points inside the extraction
+# directory, not the folder the user ran the exe from.  Use sys.executable
+# instead so friends.json and data/ resolve next to the exe.
+if getattr(sys, 'frozen', False):
+    ROOT_DIR = Path(sys.executable).parent
+else:
+    ROOT_DIR = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
