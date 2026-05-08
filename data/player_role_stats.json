@@ -1,0 +1,4687 @@
+{
+  "last_updated": "2026-05-07T23:29:33.485254+00:00",
+  "players": {
+    "185602862": {
+      "label": "Sherry",
+      "account_id": 185602862,
+      "roles": {
+        "1": {
+          "role_id": 1,
+          "name": "Carry",
+          "games": 100,
+          "wins": 46,
+          "winrate": 46.0,
+          "heroes": [
+            {
+              "hero_id": 14,
+              "games": 25,
+              "wins": 16,
+              "winrate": 64.0
+            },
+            {
+              "hero_id": 6,
+              "games": 7,
+              "wins": 5,
+              "winrate": 71.4
+            },
+            {
+              "hero_id": 41,
+              "games": 6,
+              "wins": 4,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 94,
+              "games": 6,
+              "wins": 4,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 86,
+              "games": 6,
+              "wins": 1,
+              "winrate": 16.7
+            },
+            {
+              "hero_id": 119,
+              "games": 6,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 107,
+              "games": 5,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 12,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 93,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 126,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 19,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 106,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 67,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 109,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 138,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 10,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 45,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 30,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 95,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 89,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 114,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 79,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 72,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 91,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 68,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 18,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 104,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 47,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 73,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 8,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 28,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 56,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 51,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 54,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 129,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "2": {
+          "role_id": 2,
+          "name": "Mid",
+          "games": 100,
+          "wins": 52,
+          "winrate": 52.0,
+          "heroes": [
+            {
+              "hero_id": 19,
+              "games": 27,
+              "wins": 14,
+              "winrate": 51.9
+            },
+            {
+              "hero_id": 34,
+              "games": 15,
+              "wins": 7,
+              "winrate": 46.7
+            },
+            {
+              "hero_id": 86,
+              "games": 14,
+              "wins": 8,
+              "winrate": 57.1
+            },
+            {
+              "hero_id": 74,
+              "games": 8,
+              "wins": 6,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 106,
+              "games": 8,
+              "wins": 3,
+              "winrate": 37.5
+            },
+            {
+              "hero_id": 45,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 14,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 97,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 6,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 126,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 107,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 96,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 39,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 78,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 9,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 22,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 120,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 4,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 47,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 88,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 57,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 23,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "3": {
+          "role_id": 3,
+          "name": "Offlane",
+          "games": 100,
+          "wins": 48,
+          "winrate": 48.0,
+          "heroes": [
+            {
+              "hero_id": 14,
+              "games": 23,
+              "wins": 13,
+              "winrate": 56.5
+            },
+            {
+              "hero_id": 19,
+              "games": 10,
+              "wins": 5,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 107,
+              "games": 7,
+              "wins": 5,
+              "winrate": 71.4
+            },
+            {
+              "hero_id": 2,
+              "games": 5,
+              "wins": 4,
+              "winrate": 80.0
+            },
+            {
+              "hero_id": 86,
+              "games": 5,
+              "wins": 2,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 135,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 119,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 88,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 96,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 34,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 45,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 48,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 120,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 73,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 53,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 155,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 69,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 94,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 21,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 136,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 60,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 37,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 28,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 91,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 61,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 55,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 114,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 40,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 129,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 74,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 29,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 22,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 32,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 68,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 43,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 105,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 97,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 104,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 15,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 79,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 16,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 33,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "4": {
+          "role_id": 4,
+          "name": "Jungle",
+          "games": 12,
+          "wins": 6,
+          "winrate": 50.0,
+          "heroes": [
+            {
+              "hero_id": 4,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 53,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 33,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 16,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 58,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 69,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "5": {
+          "role_id": 5,
+          "name": "Support",
+          "games": 0,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": []
+        }
+      }
+    },
+    "105774679": {
+      "label": "Haseeb",
+      "account_id": 105774679,
+      "roles": {
+        "1": {
+          "role_id": 1,
+          "name": "Carry",
+          "games": 100,
+          "wins": 54,
+          "winrate": 54.0,
+          "heroes": [
+            {
+              "hero_id": 30,
+              "games": 7,
+              "wins": 3,
+              "winrate": 42.9
+            },
+            {
+              "hero_id": 8,
+              "games": 5,
+              "wins": 3,
+              "winrate": 60.0
+            },
+            {
+              "hero_id": 1,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 26,
+              "games": 4,
+              "wins": 3,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 74,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 41,
+              "games": 4,
+              "wins": 3,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 79,
+              "games": 4,
+              "wins": 4,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 106,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 145,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 35,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 86,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 14,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 11,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 123,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 109,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 97,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 21,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 12,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 112,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 44,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 111,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 107,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 46,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 67,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 59,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 89,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 95,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 54,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 27,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 45,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 82,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 85,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 113,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 155,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 9,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 114,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 58,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 34,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 20,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 32,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 6,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 93,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 10,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 120,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 101,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 40,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "2": {
+          "role_id": 2,
+          "name": "Mid",
+          "games": 95,
+          "wins": 46,
+          "winrate": 48.4,
+          "heroes": [
+            {
+              "hero_id": 59,
+              "games": 13,
+              "wins": 8,
+              "winrate": 61.5
+            },
+            {
+              "hero_id": 74,
+              "games": 9,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 34,
+              "games": 6,
+              "wins": 5,
+              "winrate": 83.3
+            },
+            {
+              "hero_id": 76,
+              "games": 6,
+              "wins": 5,
+              "winrate": 83.3
+            },
+            {
+              "hero_id": 11,
+              "games": 5,
+              "wins": 2,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 106,
+              "games": 4,
+              "wins": 1,
+              "winrate": 25.0
+            },
+            {
+              "hero_id": 126,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 35,
+              "games": 4,
+              "wins": 1,
+              "winrate": 25.0
+            },
+            {
+              "hero_id": 21,
+              "games": 4,
+              "wins": 3,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 62,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 42,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 9,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 82,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 22,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 10,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 13,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 14,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 52,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 101,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 145,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 138,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 12,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 86,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 113,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 89,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 107,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 79,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 56,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 36,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 110,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 17,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 5,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 6,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 58,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "3": {
+          "role_id": 3,
+          "name": "Offlane",
+          "games": 100,
+          "wins": 48,
+          "winrate": 48.0,
+          "heroes": [
+            {
+              "hero_id": 145,
+              "games": 7,
+              "wins": 4,
+              "winrate": 57.1
+            },
+            {
+              "hero_id": 59,
+              "games": 5,
+              "wins": 2,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 69,
+              "games": 5,
+              "wins": 3,
+              "winrate": 60.0
+            },
+            {
+              "hero_id": 86,
+              "games": 4,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 34,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 26,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 30,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 11,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 42,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 107,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 9,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 45,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 128,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 65,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 95,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 88,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 106,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 74,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 15,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 7,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 1,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 98,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 14,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 92,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 71,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 73,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 110,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 67,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 41,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 22,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 25,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 54,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 97,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 113,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 51,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 52,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 111,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 93,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 126,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 129,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 100,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 21,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 120,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 40,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 32,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 44,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 99,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 79,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 19,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 75,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 137,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 104,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 114,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 31,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "4": {
+          "role_id": 4,
+          "name": "Jungle",
+          "games": 19,
+          "wins": 8,
+          "winrate": 42.1,
+          "heroes": [
+            {
+              "hero_id": 104,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 4,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 53,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 2,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 80,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 48,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 10,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 8,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 18,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 70,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 33,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 42,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "5": {
+          "role_id": 5,
+          "name": "Support",
+          "games": 0,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": []
+        }
+      }
+    },
+    "97129625": {
+      "label": "Abidi",
+      "account_id": 97129625,
+      "roles": {
+        "1": {
+          "role_id": 1,
+          "name": "Carry",
+          "games": 79,
+          "wins": 29,
+          "winrate": 36.7,
+          "heroes": [
+            {
+              "hero_id": 50,
+              "games": 20,
+              "wins": 8,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 2,
+              "games": 6,
+              "wins": 1,
+              "winrate": 16.7
+            },
+            {
+              "hero_id": 57,
+              "games": 4,
+              "wins": 4,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 84,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 33,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 53,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 93,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 31,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 30,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 36,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 46,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 104,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 98,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 35,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 86,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 80,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 19,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 102,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 111,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 26,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 97,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 28,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 120,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 12,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 75,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 20,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 42,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 54,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 6,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 21,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 62,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 10,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 82,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "2": {
+          "role_id": 2,
+          "name": "Mid",
+          "games": 14,
+          "wins": 5,
+          "winrate": 35.7,
+          "heroes": [
+            {
+              "hero_id": 46,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 98,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 35,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 43,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 39,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 56,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 73,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 14,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 34,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 13,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "3": {
+          "role_id": 3,
+          "name": "Offlane",
+          "games": 100,
+          "wins": 34,
+          "winrate": 34.0,
+          "heroes": [
+            {
+              "hero_id": 16,
+              "games": 20,
+              "wins": 6,
+              "winrate": 30.0
+            },
+            {
+              "hero_id": 102,
+              "games": 19,
+              "wins": 11,
+              "winrate": 57.9
+            },
+            {
+              "hero_id": 2,
+              "games": 9,
+              "wins": 1,
+              "winrate": 11.1
+            },
+            {
+              "hero_id": 62,
+              "games": 9,
+              "wins": 4,
+              "winrate": 44.4
+            },
+            {
+              "hero_id": 98,
+              "games": 8,
+              "wins": 4,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 85,
+              "games": 5,
+              "wins": 1,
+              "winrate": 20.0
+            },
+            {
+              "hero_id": 69,
+              "games": 4,
+              "wins": 1,
+              "winrate": 25.0
+            },
+            {
+              "hero_id": 99,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 97,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 50,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 86,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 96,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 108,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 29,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 36,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 25,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 136,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 22,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 43,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 104,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 33,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 68,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 57,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 31,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "4": {
+          "role_id": 4,
+          "name": "Jungle",
+          "games": 25,
+          "wins": 16,
+          "winrate": 64.0,
+          "heroes": [
+            {
+              "hero_id": 80,
+              "games": 9,
+              "wins": 6,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 53,
+              "games": 6,
+              "wins": 4,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 2,
+              "games": 5,
+              "wins": 2,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 54,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 33,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 58,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "5": {
+          "role_id": 5,
+          "name": "Support",
+          "games": 0,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": []
+        }
+      }
+    },
+    "135953784": {
+      "label": "Rafay",
+      "account_id": 135953784,
+      "roles": {
+        "1": {
+          "role_id": 1,
+          "name": "Carry",
+          "games": 100,
+          "wins": 50,
+          "winrate": 50.0,
+          "heroes": [
+            {
+              "hero_id": 70,
+              "games": 16,
+              "wins": 10,
+              "winrate": 62.5
+            },
+            {
+              "hero_id": 8,
+              "games": 9,
+              "wins": 4,
+              "winrate": 44.4
+            },
+            {
+              "hero_id": 63,
+              "games": 9,
+              "wins": 4,
+              "winrate": 44.4
+            },
+            {
+              "hero_id": 44,
+              "games": 7,
+              "wins": 3,
+              "winrate": 42.9
+            },
+            {
+              "hero_id": 54,
+              "games": 6,
+              "wins": 4,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 6,
+              "games": 6,
+              "wins": 1,
+              "winrate": 16.7
+            },
+            {
+              "hero_id": 26,
+              "games": 5,
+              "wins": 1,
+              "winrate": 20.0
+            },
+            {
+              "hero_id": 21,
+              "games": 4,
+              "wins": 3,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 87,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 11,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 42,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 56,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 18,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 104,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 1,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 31,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 20,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 3,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 41,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 12,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 48,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 94,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 4,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 15,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 93,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 39,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 84,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 121,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "2": {
+          "role_id": 2,
+          "name": "Mid",
+          "games": 34,
+          "wins": 18,
+          "winrate": 52.9,
+          "heroes": [
+            {
+              "hero_id": 35,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 73,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 11,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 1,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 39,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 36,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 104,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 70,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 74,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 52,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 13,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 44,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 4,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 10,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 72,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 94,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 25,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 114,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 47,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 19,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "3": {
+          "role_id": 3,
+          "name": "Offlane",
+          "games": 100,
+          "wins": 54,
+          "winrate": 54.0,
+          "heroes": [
+            {
+              "hero_id": 2,
+              "games": 16,
+              "wins": 6,
+              "winrate": 37.5
+            },
+            {
+              "hero_id": 36,
+              "games": 10,
+              "wins": 7,
+              "winrate": 70.0
+            },
+            {
+              "hero_id": 16,
+              "games": 7,
+              "wins": 4,
+              "winrate": 57.1
+            },
+            {
+              "hero_id": 71,
+              "games": 6,
+              "wins": 2,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 108,
+              "games": 6,
+              "wins": 5,
+              "winrate": 83.3
+            },
+            {
+              "hero_id": 26,
+              "games": 5,
+              "wins": 4,
+              "winrate": 80.0
+            },
+            {
+              "hero_id": 60,
+              "games": 5,
+              "wins": 3,
+              "winrate": 60.0
+            },
+            {
+              "hero_id": 28,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 47,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 59,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 29,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 69,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 38,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 83,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 104,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 102,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 96,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 42,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 121,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 64,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 27,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 70,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 81,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 87,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 20,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 98,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 57,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 99,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 95,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 100,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 18,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "4": {
+          "role_id": 4,
+          "name": "Jungle",
+          "games": 2,
+          "wins": 2,
+          "winrate": 100.0,
+          "heroes": [
+            {
+              "hero_id": 9,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "5": {
+          "role_id": 5,
+          "name": "Support",
+          "games": 0,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": []
+        }
+      }
+    },
+    "124437009": {
+      "label": "ABT",
+      "account_id": 124437009,
+      "roles": {
+        "1": {
+          "role_id": 1,
+          "name": "Carry",
+          "games": 100,
+          "wins": 47,
+          "winrate": 47.0,
+          "heroes": [
+            {
+              "hero_id": 35,
+              "games": 9,
+              "wins": 5,
+              "winrate": 55.6
+            },
+            {
+              "hero_id": 30,
+              "games": 6,
+              "wins": 3,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 14,
+              "games": 6,
+              "wins": 3,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 26,
+              "games": 5,
+              "wins": 2,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 18,
+              "games": 4,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 11,
+              "games": 4,
+              "wins": 4,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 86,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 64,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 4,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 87,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 114,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 45,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 46,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 12,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 73,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 42,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 41,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 27,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 94,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 137,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 8,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 72,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 5,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 22,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 63,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 50,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 70,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 44,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 129,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 31,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 23,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 38,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 75,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 10,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 62,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 1,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 49,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 37,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 3,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 105,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 32,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 121,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 104,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 29,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 13,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 89,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 128,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "2": {
+          "role_id": 2,
+          "name": "Mid",
+          "games": 100,
+          "wins": 47,
+          "winrate": 47.0,
+          "heroes": [
+            {
+              "hero_id": 35,
+              "games": 22,
+              "wins": 10,
+              "winrate": 45.5
+            },
+            {
+              "hero_id": 73,
+              "games": 8,
+              "wins": 5,
+              "winrate": 62.5
+            },
+            {
+              "hero_id": 75,
+              "games": 6,
+              "wins": 4,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 14,
+              "games": 5,
+              "wins": 2,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 84,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 53,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 74,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 22,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 23,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 15,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 26,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 27,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 71,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 47,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 56,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 54,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 61,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 11,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 45,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 109,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 18,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 86,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 113,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 87,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 40,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 94,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 129,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 93,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 33,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 52,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 16,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 107,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 101,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 111,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 114,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 36,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 48,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 39,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 41,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 59,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 44,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "3": {
+          "role_id": 3,
+          "name": "Offlane",
+          "games": 100,
+          "wins": 52,
+          "winrate": 52.0,
+          "heroes": [
+            {
+              "hero_id": 14,
+              "games": 16,
+              "wins": 7,
+              "winrate": 43.8
+            },
+            {
+              "hero_id": 26,
+              "games": 6,
+              "wins": 2,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 30,
+              "games": 6,
+              "wins": 1,
+              "winrate": 16.7
+            },
+            {
+              "hero_id": 84,
+              "games": 6,
+              "wins": 5,
+              "winrate": 83.3
+            },
+            {
+              "hero_id": 85,
+              "games": 4,
+              "wins": 3,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 90,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 38,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 137,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 114,
+              "games": 3,
+              "wins": 3,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 86,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 104,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 81,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 35,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 53,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 74,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 102,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 105,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 40,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 72,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 27,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 97,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 103,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 63,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 52,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 37,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 121,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 73,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 100,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 34,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 108,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 123,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 55,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 83,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 99,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 68,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 50,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 75,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 71,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 47,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 10,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 79,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "4": {
+          "role_id": 4,
+          "name": "Jungle",
+          "games": 3,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": [
+            {
+              "hero_id": 33,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 42,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "5": {
+          "role_id": 5,
+          "name": "Support",
+          "games": 0,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": []
+        }
+      }
+    },
+    "104794975": {
+      "label": "Cancer",
+      "account_id": 104794975,
+      "roles": {
+        "1": {
+          "role_id": 1,
+          "name": "Carry",
+          "games": 100,
+          "wins": 55,
+          "winrate": 55.0,
+          "heroes": [
+            {
+              "hero_id": 105,
+              "games": 38,
+              "wins": 22,
+              "winrate": 57.9
+            },
+            {
+              "hero_id": 18,
+              "games": 6,
+              "wins": 3,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 68,
+              "games": 5,
+              "wins": 2,
+              "winrate": 40.0
+            },
+            {
+              "hero_id": 27,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 50,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 8,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 109,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 30,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 14,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 35,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 11,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 9,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 93,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 114,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 128,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 48,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 73,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 94,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 40,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 83,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 136,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 44,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 46,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 19,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 64,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 75,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 61,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 41,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 49,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 12,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 3,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 54,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 81,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 120,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 37,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "2": {
+          "role_id": 2,
+          "name": "Mid",
+          "games": 100,
+          "wins": 55,
+          "winrate": 55.0,
+          "heroes": [
+            {
+              "hero_id": 105,
+              "games": 39,
+              "wins": 22,
+              "winrate": 56.4
+            },
+            {
+              "hero_id": 35,
+              "games": 12,
+              "wins": 6,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 11,
+              "games": 11,
+              "wins": 5,
+              "winrate": 45.5
+            },
+            {
+              "hero_id": 73,
+              "games": 5,
+              "wins": 4,
+              "winrate": 80.0
+            },
+            {
+              "hero_id": 106,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 94,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 56,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 84,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 39,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 21,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 36,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 43,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 22,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 86,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 138,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 32,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 88,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 30,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 49,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 80,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 23,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "3": {
+          "role_id": 3,
+          "name": "Offlane",
+          "games": 100,
+          "wins": 54,
+          "winrate": 54.0,
+          "heroes": [
+            {
+              "hero_id": 105,
+              "games": 41,
+              "wins": 21,
+              "winrate": 51.2
+            },
+            {
+              "hero_id": 9,
+              "games": 6,
+              "wins": 4,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 40,
+              "games": 4,
+              "wins": 4,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 68,
+              "games": 4,
+              "wins": 3,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 14,
+              "games": 4,
+              "wins": 1,
+              "winrate": 25.0
+            },
+            {
+              "hero_id": 73,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 62,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 47,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 35,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 50,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 53,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 104,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 28,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 71,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 22,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 84,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 129,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 15,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 27,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 30,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 29,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 7,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 111,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 69,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 86,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 81,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 16,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 2,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 60,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 119,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 75,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 33,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 51,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "4": {
+          "role_id": 4,
+          "name": "Jungle",
+          "games": 18,
+          "wins": 11,
+          "winrate": 61.1,
+          "heroes": [
+            {
+              "hero_id": 105,
+              "games": 5,
+              "wins": 4,
+              "winrate": 80.0
+            },
+            {
+              "hero_id": 2,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 47,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 33,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 58,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 31,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 38,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 68,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 50,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 107,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "5": {
+          "role_id": 5,
+          "name": "Support",
+          "games": 0,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": []
+        }
+      }
+    },
+    "90972450": {
+      "label": "Zain",
+      "account_id": 90972450,
+      "roles": {
+        "1": {
+          "role_id": 1,
+          "name": "Carry",
+          "games": 100,
+          "wins": 57,
+          "winrate": 57.0,
+          "heroes": [
+            {
+              "hero_id": 9,
+              "games": 17,
+              "wins": 14,
+              "winrate": 82.4
+            },
+            {
+              "hero_id": 37,
+              "games": 11,
+              "wins": 5,
+              "winrate": 45.5
+            },
+            {
+              "hero_id": 31,
+              "games": 9,
+              "wins": 8,
+              "winrate": 88.9
+            },
+            {
+              "hero_id": 68,
+              "games": 9,
+              "wins": 4,
+              "winrate": 44.4
+            },
+            {
+              "hero_id": 72,
+              "games": 9,
+              "wins": 8,
+              "winrate": 88.9
+            },
+            {
+              "hero_id": 27,
+              "games": 7,
+              "wins": 5,
+              "winrate": 71.4
+            },
+            {
+              "hero_id": 86,
+              "games": 7,
+              "wins": 1,
+              "winrate": 14.3
+            },
+            {
+              "hero_id": 64,
+              "games": 6,
+              "wins": 3,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 112,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 87,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 83,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 75,
+              "games": 3,
+              "wins": 2,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 30,
+              "games": 3,
+              "wins": 1,
+              "winrate": 33.3
+            },
+            {
+              "hero_id": 5,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 26,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 21,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 84,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 20,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 94,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            }
+          ]
+        },
+        "2": {
+          "role_id": 2,
+          "name": "Mid",
+          "games": 32,
+          "wins": 17,
+          "winrate": 53.1,
+          "heroes": [
+            {
+              "hero_id": 9,
+              "games": 7,
+              "wins": 5,
+              "winrate": 71.4
+            },
+            {
+              "hero_id": 21,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 53,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 62,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 75,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 136,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 31,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 43,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 45,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 13,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 64,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 5,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 25,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 84,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 86,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 50,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 40,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 76,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 83,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 105,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "3": {
+          "role_id": 3,
+          "name": "Offlane",
+          "games": 100,
+          "wins": 53,
+          "winrate": 53.0,
+          "heroes": [
+            {
+              "hero_id": 9,
+              "games": 16,
+              "wins": 9,
+              "winrate": 56.2
+            },
+            {
+              "hero_id": 86,
+              "games": 12,
+              "wins": 6,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 75,
+              "games": 8,
+              "wins": 3,
+              "winrate": 37.5
+            },
+            {
+              "hero_id": 68,
+              "games": 6,
+              "wins": 4,
+              "winrate": 66.7
+            },
+            {
+              "hero_id": 21,
+              "games": 6,
+              "wins": 3,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 37,
+              "games": 5,
+              "wins": 3,
+              "winrate": 60.0
+            },
+            {
+              "hero_id": 87,
+              "games": 5,
+              "wins": 3,
+              "winrate": 60.0
+            },
+            {
+              "hero_id": 64,
+              "games": 5,
+              "wins": 3,
+              "winrate": 60.0
+            },
+            {
+              "hero_id": 84,
+              "games": 5,
+              "wins": 1,
+              "winrate": 20.0
+            },
+            {
+              "hero_id": 26,
+              "games": 5,
+              "wins": 4,
+              "winrate": 80.0
+            },
+            {
+              "hero_id": 30,
+              "games": 4,
+              "wins": 3,
+              "winrate": 75.0
+            },
+            {
+              "hero_id": 112,
+              "games": 4,
+              "wins": 2,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 83,
+              "games": 3,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 31,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 62,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 27,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 72,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 36,
+              "games": 2,
+              "wins": 1,
+              "winrate": 50.0
+            },
+            {
+              "hero_id": 3,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 32,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 50,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 35,
+              "games": 1,
+              "wins": 1,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 90,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 40,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "4": {
+          "role_id": 4,
+          "name": "Jungle",
+          "games": 5,
+          "wins": 2,
+          "winrate": 40.0,
+          "heroes": [
+            {
+              "hero_id": 66,
+              "games": 2,
+              "wins": 0,
+              "winrate": 0.0
+            },
+            {
+              "hero_id": 58,
+              "games": 2,
+              "wins": 2,
+              "winrate": 100.0
+            },
+            {
+              "hero_id": 9,
+              "games": 1,
+              "wins": 0,
+              "winrate": 0.0
+            }
+          ]
+        },
+        "5": {
+          "role_id": 5,
+          "name": "Support",
+          "games": 0,
+          "wins": 0,
+          "winrate": 0.0,
+          "heroes": []
+        }
+      }
+    }
+  }
+}

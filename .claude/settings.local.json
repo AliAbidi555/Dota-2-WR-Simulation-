@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from app.probability import WinProbabilityModel, get_model; print\\('import OK'\\); m = WinProbabilityModel.load\\(\\); print\\('Done'\\)\")",
+      "Bash(python -c ' *)",
+      "PowerShell(pip install fastapi httpx starlette 2>&1)"
+    ]
+  }
+}

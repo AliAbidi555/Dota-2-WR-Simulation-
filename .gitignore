@@ -5,6 +5,7 @@ data/match_cache/
 notebook_cache/
 
 .env
+friends.json
 __pycache__/
 *.pyc
 *.pyo
